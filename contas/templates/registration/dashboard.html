@@ -1,0 +1,31 @@
+{% extends "loja/base.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="container-principal">
+    <div class="row justify-content-center">
+        <div class="col-8 col-lg-4 text-light">
+            <h2>Bem Vindo {{nome_usuario}}</h2>
+            <h3>Deseja:</h3>
+            <a href="{% url 'password_change' %}" class='btn btn-success my-2'>Modificar senha</a><br>
+            <a href="{% url 'password_reset' %}" class='btn btn-success my-2'>Esqueceu a senha?</a><br>
+            <a href="{% url 'logout'%}" class='btn btn-success my-2'>Sair da conta</a><br>
+        </div>
+    </div>
+
+    {% if user.is_superuser %}
+        <div class="row text-light justify-content-center mb-4">
+            <div class="col text-center">
+                <h1 class='text-center text-uppercase my-5'>Área administrativa</h1>
+                
+                <a href="#" class='btn btn-success big-button'>Cadastrar /<br> alterar produto</a>
+                
+            </div>
+        </div>
+    {% endif %}
+</div>
+    
+
+
+{% endblock content %}

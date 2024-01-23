@@ -1,0 +1,29 @@
+{% extends "loja/base.html" %}
+{% load static %}
+{% block title %}Cadastro{% endblock title %}
+
+{% block content %}
+
+<div class="container text-light py-5">
+    <h2 class="text-uppercase mb-4">Faça seu cadastro:</h2>
+    <div class="form_contaier col-lg-6">
+        <form method="POST">
+            {% csrf_token %}
+          <div class="form-group">
+            {% for item in form %}
+            <label for="{{item.id}}">
+                {% if item.name == 'endereco' %}Endereço{% else %}
+                {% if item.name != 'confirme' %}{{item.name|title}}{% endif %}{% endif %}
+                {% if item.name == 'confirme' %}Confirme a senha:{% endif %}
+            </label>
+            {{item}}
+            {% endfor %}
+          </div>
+         
+          <button type="submit" class="btn btn-light">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+</div>
+<script src="{% static 'js/valida-senha.js' %}"></script>
+{% endblock content %}

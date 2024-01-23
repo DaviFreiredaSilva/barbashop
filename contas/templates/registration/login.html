@@ -1,0 +1,25 @@
+{% extends "loja/base.html" %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+<div class="container-principal">
+    <div class="row justify-content-center">
+        <div class="col-8 col-lg-4">
+            <form method="POST">
+                {% csrf_token %}
+                <h1 class='text-light'>Login</h1>
+                <div class="form-group ms-3">
+                    <label class='text-light' for="id_username">Email</label>
+                    <input type="text" id='id_username' name='username' class='form-control my-2'>
+                    <label class='text-light' for="id_password">Senha</label>
+                    <input type="password" id='id_password' name='password' class='form-control my-2'>
+                
+                    <button type="submit" class="btn btn-light  my-2">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

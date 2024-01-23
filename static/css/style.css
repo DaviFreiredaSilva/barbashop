@@ -2,7 +2,6 @@ body {
   font-family: "Poppins", sans-serif;
   color: #000000;
   background-color: black;
-  
 }
 
 .layout_padding {
@@ -57,8 +56,8 @@ body {
 
 /*header section*/
 .hero_area {
-  height: 100vh;
-  background-color: black;;
+  height: 90vh;
+  background-color: black;
 }
 
 .sub_page .hero_area {
@@ -204,6 +203,10 @@ a:focus {
   background-size: 42px;
 }
 
+.navbar a:hover{
+  color: rgb(158, 158, 240)!important;
+}
+
 /*end header section*/
 /* slider section */
 .slider_section {
@@ -211,18 +214,63 @@ a:focus {
 }
 
 .carousel-item{
-  max-height: 80vh;
+  max-height: 70vh;
+}
+
+.container-principal{
+  padding-top: 100px;
+  padding-bottom: 140px;
 }
 
 /*Section Produtos*/
-.card:hover h5{
- color: blue!important;
+
+@media only screen and (max-width: 720px) {
+  .card{
+    width: 150px;
+  }
+
+  .card h5{
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .card-text{
+    font-size: 1rem!important;
+  }
+
+  .card{
+    width: 170px!important;
+  }
+  
+  .card img{
+    width:130px!important;
+  }
+}
+
+.card{
+  max-width: 250px;
+  height: 300px;
+}
+
+.card img{
+  width:150px;
 }
 
 .card p{
   font-size: 1.5rem;
   font-weight: bold;
+  position: absolute;
+  bottom: 10px;
 }
+
+.card:hover h5{
+  color: blue!important;
+ }
+
 /*end Section Produtos*/
 
 .feature_section .feature_container {
@@ -323,6 +371,12 @@ a:focus {
   color: #2c2c2c;
 }
 
+/* admin section */
+.big-button{
+  height: 120px;
+  font-size: 2rem;
+}
+/* admin section end*/
 
 .contact_section .custom_heading-container {
   -webkit-box-pack: start;

@@ -3,6 +3,7 @@
 {% block title %}Loja{% endblock title %}
 
 {% block content %}
+{% include "loja/includes/carousel.html" %}
   <!-- filter buttons section -->
   <section>
     <div class="container mb-4">
@@ -25,27 +26,30 @@
         </div>
     </div>
   </section>
-  
+  <!-- end filter buttons section -->
+
   {% comment %} section dos produtos {% endcomment %}
   <section class="layout_padding">
     <div class="container">
-      <div class="row justify-content-between">
+      <div class="row justify-content-around">
 
-        {% for i in "aaaaaaaaaaaa" %}
-        <a href="#" class="mb-3 mx-2">
-          <div class="card p-2 " style="width: 15rem;">
-            <img class="card-img-top" src="{% static 'images/sem-imagem.jpeg' %}" alt="Card image cap">
+        {% for produto in produtos %}
+        <a href="#" class="mb-3 mx-2 rounded">
+          <div class="card p-2">
+            <img class="card-img-top align-self-center" src="{{produto.imagem.url}}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="product-name text-dark">Produto</h5>
-              <p class="card-text text-success fs-1">R$ 0,00</p>
+              <h5 class="product-name text-dark">{{produto.nome}}</h5>
+              <hr>
+              <p class="card-text text-success fs-1">R$ {{produto.preco}}</p>
             </div>
           </div>
         </a>
         {% endfor %}
+
       </div>
     </div>
   </section>
-  <!-- end filter buttons section -->
-  <!-- discount section -->
+  
+  {% include "loja/includes/mail_contact.html" %}
 {% endblock content %}
 
