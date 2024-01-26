@@ -25,7 +25,7 @@ class Produto(models.Model):
     slug = models.SlugField(max_length = 100)
     descricao =  models.CharField(max_length = 300, blank=True)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
-    imagem = models.ImageField(upload_to='media', blank=True, null=True)
+    imagem = models.ImageField(upload_to='media/', blank=True, null=True)
     available = models.BooleanField(default= True)
     created = models.DateTimeField(auto_now_add = True)
     updated = models.DateTimeField(auto_now = True)

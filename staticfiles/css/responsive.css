@@ -124,4 +124,23 @@
     .info_menu{
         display: none;
     }
+
+    .detalhes h3 span{
+        font-size: 2rem;
+      }
+      
+      .detalhes h4{
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical; 
+      }
+      
+      .detalhe-produto-imagem{
+        width: 30vw;
+      }
+      
+      .detalhe-botao-adicionar{
+        font-size: 1.5rem;
+        margin-top: 50px;
+      }
   }

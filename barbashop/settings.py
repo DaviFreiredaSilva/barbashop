@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'contas',
     'loja',
+    'cart',
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -118,6 +119,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['https://web-production-e417.up.railway.app']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -137,6 +140,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Configurações de sessions
+CART_SESSION_ID = 'cart'
 
 #Configurações de autenticação
 LOGIN_REDIRECT_URL= 'loja:index'
