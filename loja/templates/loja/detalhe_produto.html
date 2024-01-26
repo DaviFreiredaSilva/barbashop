@@ -1,1 +1,25 @@
-<h1>detalhe produto</h1>
+{% extends "loja/base.html" %}
+{% load static %}
+{% block title %}Detalhes{% endblock title %}
+
+{% block content %}
+
+<div class="container my-5">
+    <h1 class="text-light my-5 text-center">Detalhes do produto</h1>
+    <div class="row my-3">
+        <div class="col-8 text-light">           
+            <img class='detalhe-produto-imagem' src="{% if produto.imagem %}{{produto.imagem.url}}{% else %}{% static 'images/sem-image.jpeg' %}{% endif %}" alt="produto">
+            
+        </div>
+        <div class="col-4 text-light detalhes">
+            <h2 class="my-2 fw-bold">{{produto.nome}}</h2>
+            <h3 class="my-2">Preço: <span>R${{produto.preco}}</span></h3>
+            <h4 class="my-2">Descrição: {{produto.descricao}}</h4>
+            <a href="#" class="btn btn-primary detalhe-botao-adicionar">Adicionar ao carrinho</a>
+        </div>
+    </div>
+</div>
+  
+{% include "loja/includes/mail_contact.html" %}
+{% endblock content %}
+

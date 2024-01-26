@@ -1,0 +1,37 @@
+{% extends "loja/base.html" %}
+
+{% block title %}Admin{% endblock title %}
+
+{% block content %}
+<div class="container-principal">
+    <div class="d-flex flex-column align-items-center text-light">
+        <h1>Lista de Produtos</h1><br/><br>
+        <h3>Clique em um produto para editá-lo ou <a class='btn btn-outline-primary' href="{% url 'loja:cadastro_produto'%}"><h3>adicione um produto</h3></a></h3>
+        <div class='col-8 col-md-10 m-4'>
+            <div class="container lista-produtos-titulo">
+                <div class="row border border-light row-titulo text-center">
+                    <div class="col-2">ID</div>
+                    <div class="col-6">NOME</div>
+                    <div class="col-2 lista-produto-categoria">CATEGORIA</div>
+                    <div class="col-2">PREÇO</div>
+                </div>
+            </div>
+            <div class="container lista-produtos overflow-scroll">
+
+                {% for produto in produtos %}
+                    <a href="#">
+                        <div class="row border border-light row-produto text-center">
+                            <div class="col-2">{{produto.id}}</div>
+                            <div class="col-6">{{produto.nome|truncatechars:'30'}}</div>
+                            <div class="col-2 lista-produto-categoria">{{produto.categoria}}</div>
+                            <div class="col-2">R$ {{produto.preco}}</div>
+                        </div>
+                    </a>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

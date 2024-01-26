@@ -8,7 +8,8 @@
   <section>
     <div class="container mb-4">
         <div class="row justify-content-center">
-          <form>
+          <div class="col-lg-3 col-8">
+          <form class='d-flex'>
             {% csrf_token %}
             <select class="form-select bg-dark text-light" name="filtro" id="filtro">
                 <option selected>Filtrar por:</option>
@@ -17,12 +18,15 @@
                 <option value="recente">Maior preço</option>
             </select>
             <input type="submit" class="btn btn-dark mx-3" value="Filtrar"></input>
-          </form>    
+          </form>
+        </div>    
         </div>
         <div class="row justify-content-center">
-            <a href="#" class="btn btn-dark m-3">Camisas</a>
-            <a href="#" class="btn btn-dark m-3">Bermudas</a>
-            <a href="#" class="btn btn-dark m-3">Calçados</a>
+          <div class="d-flex justify-content-center">
+            <a href="#" class="btn btn-dark m-2">Camisas</a>
+            <a href="#" class="btn btn-dark m-2">Bermudas</a>
+            <a href="#" class="btn btn-dark m-2">Calçados</a>
+          </div>
         </div>
     </div>
   </section>
@@ -31,14 +35,14 @@
   {% comment %} section dos produtos {% endcomment %}
   <section class="layout_padding">
     <div class="container">
-      <div class="row justify-content-around">
+      <div class="d-flex flex-wrap justify-content-between">
 
         {% for produto in produtos %}
-        <a href="#" class="mb-3 mx-2 rounded">
+        <a href="{% url 'loja:detalhe_produto' produto.slug %}" class="mb-3 mx-2 rounded">
           <div class="card p-2">
-            <img class="card-img-top align-self-center" src="{{produto.imagem.url}}" alt="Card image cap">
+            <img class="card-img-top align-self-center" src="{% if produto.imagem %}{{produto.imagem.url}}{% else %}{% static 'images/sem-imagem.jpeg' %}{% endif %}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="product-name text-dark">{{produto.nome}}</h5>
+              <h5 class="product-name text-dark">{{produto.nome|truncatechars:40}}</h5>
               <hr>
               <p class="card-text text-success fs-1">R$ {{produto.preco}}</p>
             </div>

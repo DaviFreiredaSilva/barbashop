@@ -4,13 +4,12 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
+    <div class="row logged-out-div">
         <div class="col-12 text-light">
-            
             <h2 class='text-center text-light'>Você saiu da sua conta.</h2>
             <h3 class='text-center text-light'>Deseja entrar novamente? </h3>
             
-            <h3 class='text-center mb-5'><a href="{% url 'login'%}">Login</a></h3>
+            <h3 class='text-center mb-5'><a class='text-primary' href="{% url 'login'%}">Login</a></h3>
         </div>
     </div>
 </div>

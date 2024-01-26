@@ -1,0 +1,1 @@
+web: gunicorn barbashop.wsgi --log-file -

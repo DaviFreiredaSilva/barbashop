@@ -1,0 +1,6 @@
+asgiref==3.5.2
+django==4.1
+gunicorn==21.2.0
+sqlparse==0.4.4
+gunicorn==21.2.0
+tzdata==2023d

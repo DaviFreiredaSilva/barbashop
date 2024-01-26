@@ -65,6 +65,7 @@ def logout(request):
     return render(request, 'contas/logout.html')
 
 def dashboard(request):
+    
     if request.user.is_authenticated:
         nome_usuario = request.user.email.split('@')[0]
         context = {
