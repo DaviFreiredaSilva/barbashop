@@ -26,7 +26,7 @@ class Cart:
             self.cart[id_produto]['quantidade'] = quantidade
         else:
             self.cart[id_produto]['quantidade'] += quantidade
-        self.save()
+        self.salvar()
         
     def salvar(self):
         #Marca a session como modified e salva
@@ -46,7 +46,7 @@ class Cart:
         produtos = Produto.objects.filter(id__in=ids_produtos)
         cart = self.cart.copy()
         for produto in produtos:
-            cart[str(produto.id)]['product'] = produto
+            cart[str(produto.id)]['produto'] = produto
         for item in cart.values():
             item['preco'] = Decimal(item['preco'])
             item['preco_total'] = item['preco']* item['quantidade']

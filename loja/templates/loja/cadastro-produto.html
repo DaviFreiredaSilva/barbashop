@@ -20,7 +20,7 @@
             <label for="nome">Descrição</label>
             <textarea rows=3 name='descricao' id='descricao' class='form-control my-1'></textarea>
             <label for="preco">Preço</label>
-            <input type="number" name='preco' id='preco' class='form-control my-1'  required>
+            <input type="number" name='preco' id='preco' class='form-control my-1' min="0" step=".01"  required>
             <label for="imagem">Imagem</label>
             <input type="file" id="imagem" name="imagem" accept="image/*" class='form-control my-1'>
           </div>

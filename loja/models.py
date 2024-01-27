@@ -23,7 +23,7 @@ class Produto(models.Model):
     categoria = models.ForeignKey(Categoria, related_name='produtos',null=True, on_delete =models.SET_NULL )
     nome = models.CharField(max_length = 100)
     slug = models.SlugField(max_length = 100)
-    descricao =  models.CharField(max_length = 300, blank=True)
+    descricao =  models.CharField(max_length = 300, blank=True, default="Sem descrição.")
     preco = models.DecimalField(max_digits=10, decimal_places=2)
     imagem = models.ImageField(upload_to='media/', blank=True, null=True)
     available = models.BooleanField(default= True)

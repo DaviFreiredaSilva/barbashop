@@ -90,14 +90,6 @@
                 </a>
               </div>
             </div>
-            <div class="login_btn-contanier ms-3 ml-0 ml-lg-5">
-              <a href="{% url 'cart_detail'%}">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class='text-danger bg-light rounded-circle p-2 mx-2'>
-                  {{cart|length}}
-                </span>
-              </a>
-            </div>
           </div>
           </div>
 
@@ -111,7 +103,14 @@
     {% endfor %}
   {% endif %}
   </div>
-  
+  <div class="login_btn-contanier ms-3 ml-0 ml-lg-5 carrinho">
+    <a href="{% url 'cart_detail'%}">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class='text-danger bg-light rounded-circle p-2 mx-2'>
+        {{cart|length}}
+      </span>
+    </a>
+  </div>
 {% block content %}
 
 {% endblock content %}

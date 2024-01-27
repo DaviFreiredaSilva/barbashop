@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from .models import Produto, Categoria
+from decimal import Decimal
+from cart.cart import Cart
 
 def index(request):
     nome_usuario = ''
+    cart = Cart(request)
     produtos = Produto.objects.all()
     if request.user.is_authenticated:
         nome_usuario = request.user.email.split('@')[0]
@@ -10,6 +13,7 @@ def index(request):
     context = {
         'produtos':produtos,
         'nome_usuario':nome_usuario,
+        'cart':cart,
     }
     return render(request, 'loja/index.html', context)
 
@@ -46,6 +50,8 @@ def cadastro_produto(request):
             descricao = request.POST['descricao']
         else:
             descricao=None
+        #strpreco = str(request.POST['preco']).replace(",",".")
+        #preco = Decimal(strpreco)
         preco = request.POST['preco']
         if request.FILES:
             imagem = request.FILES['imagem']

@@ -35,19 +35,26 @@
   {% comment %} section dos produtos {% endcomment %}
   <section class="layout_padding">
     <div class="container">
-      <div class="d-flex flex-wrap justify-content-between">
+      <div class="d-flex flex-wrap justify-content-around">
 
         {% for produto in produtos %}
-        <a href="{% url 'loja:detalhe_produto' produto.slug %}" class="mb-3 mx-2 rounded">
-          <div class="card p-2">
-            <img class="card-img-top align-self-center" src="{% if produto.imagem %}{{produto.imagem.url}}{% else %}{% static 'images/sem-imagem.jpeg' %}{% endif %}" alt="Card image cap">
+        
+          <div class="card p-2 my-4">
+            <a href="{% url 'loja:detalhe_produto' produto.slug %}" class="mb-3 mx-2 rounded">
+              <img class="card-img-top align-self-center" src="{% if produto.imagem %}{{produto.imagem.url}}{% else %}{% static 'images/sem-imagem.jpeg' %}{% endif %}" alt="Card image cap">
+            </a>
             <div class="card-body">
               <h5 class="product-name text-dark">{{produto.nome|truncatechars:40}}</h5>
               <hr>
-              <p class="card-text text-success fs-1">R$ {{produto.preco}}</p>
+              <p class="card-text text-success fs-1">R$ {{produto.preco}} </p>
+              <form method='POST' action="{% url 'cart_add' produto.id %}">
+                {% csrf_token %}
+              <input type='submit'  class='btn btn-primary produto-botao-adicionar' value='Comprar'></input>
+              </form>
+              
             </div>
           </div>
-        </a>
+        
         {% endfor %}
 
       </div>

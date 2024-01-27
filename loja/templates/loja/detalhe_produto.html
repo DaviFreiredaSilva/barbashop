@@ -5,16 +5,17 @@
 {% block content %}
 
 <div class="container my-5">
-    <h1 class="text-light my-5 text-center">Detalhes do produto</h1>
-    <div class="row my-3">
-        <div class="col-6 text-light">           
-            <img class='detalhe-produto-imagem' src="{% if produto.imagem %}{{produto.imagem.url}}{% else %}{% static 'images/sem-image.jpeg' %}{% endif %}" alt="produto">
-            <a href="#" class="btn btn-primary detalhe-botao-adicionar">Adicionar ao carrinho</a>
+    <h2 class="my-2 fw-bold text-light">{{produto.nome}}</h2>
+    <div class="row">
+        <div class="col-12 d-flex">
+            <img class='detalhe-produto-imagem img-fluid' src="{% if produto.imagem %}{{produto.imagem.url}}{% else %}{% static 'images/sem-image.jpeg' %}{% endif %}" alt="produto">
         </div>
-        <div class="col-6 text-light detalhes">
-            <h2 class="my-2 fw-bold">{{produto.nome}}</h2>
-            <h3 class="my-2">Preço: <span>R${{produto.preco}}</span></h3>
-            <h4 class="my-2">Descrição: {{produto.descricao}}</h4>
+    </div>
+    <div class="row my-3">
+        <div class="col-10 text-light detalhes">
+            <h3 class="my-2">Preço: <span>R${{produto.preco}}</span></h3>           
+            <a href="#" class="btn btn-primary detalhe-botao-adicionar">Adicionar ao carrinho</a>
+            <h4 class="my-2">Descrição: <br>{{produto.descricao}}</h4>
         </div>
     </div>
 </div>
