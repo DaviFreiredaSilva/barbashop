@@ -8,8 +8,8 @@
   <section>
     <div class="container mb-4">
         <div class="row justify-content-center">
-          <div class="col-lg-5 col-10">
-          <form class='d-flex' action="{% url 'loja:filtrar_produtos' %}" method='POST'>
+          <div class="col-lg-5 col-12">
+          <form class='d-flex' method='POST'>
             {% csrf_token %}
             <select class="form-select bg-dark text-light mx-2" name="filtro-ordem" id="filtro-ordem">
                 <option selected>Ordenar por:</option>
@@ -36,7 +36,11 @@
   {% comment %} section dos produtos {% endcomment %}
   <section class="layout_padding">
     <div class="container">
-      <div class="d-flex flex-wrap justify-content-around">
+      <div class="d-flex flex-wrap justify-content-between">
+
+        {% if produtos|length < 1 %}
+          <h1 class='text-light'>Nenhum produto encontrado</h1>
+        {% endif %}
 
         {% for produto in produtos %}
         

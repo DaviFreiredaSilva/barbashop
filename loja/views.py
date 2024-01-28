@@ -5,18 +5,45 @@ from cart.cart import Cart
 
 def index(request):
     nome_usuario = ''
-    cart = Cart(request)
     produtos = Produto.objects.all()
     categorias = Categoria.objects.all()
     if request.user.is_authenticated:
         nome_usuario = request.user.email.split('@')[0]
 
-    context = {
-        'produtos':produtos,
-        'categorias':categorias,
-        'nome_usuario':nome_usuario,
-        'cart':cart,
-    }
+    #Filtros de produtos
+    if request.method == 'POST':
+        #Filtro por ordem
+        if request.POST.get('filtro-ordem'):
+            filtro_ordem = request.POST.get('filtro-ordem')
+            if filtro_ordem == 'recente':
+                produtos = Produto.objects.all().order_by('created')
+            if filtro_ordem == 'menor':
+                produtos = Produto.objects.all().order_by('preco')
+            if filtro_ordem == 'maior':
+                produtos = Produto.objects.all().order_by('-preco')
+                
+         #Filtro por categoria   
+        if request.POST.get('filtro-categoria'):
+            print(request.POST.get('filtro-categoria'))
+            filtro_categoria = request.POST.get('filtro-categoria')
+            if filtro_categoria == 'todas':
+                pass
+            else:
+                categoria = Categoria.objects.get(nome = filtro_categoria)
+                produtos = Produto.objects.filter(categoria=categoria)
+        
+        context = {
+            'produtos':produtos,
+            'categorias':categorias,
+            'nome_usuario':nome_usuario,
+        }
+        return render(request, 'loja/index.html', context)
+    else:  
+        context = {
+            'produtos':produtos,
+            'categorias':categorias,
+            'nome_usuario':nome_usuario,
+        }
     return render(request, 'loja/index.html', context)
 
 def sobre(request):
@@ -74,39 +101,3 @@ def cadastro_produto(request):
         'categorias':categorias
     }
     return render(request, 'loja/cadastro-produto.html', context)
-
-def filtrar_produtos(request):
-    produtos_ordenados = Produto.objects.all()
-    categorias = Categoria.objects.all()
-    if request.method == 'POST':
-        #Filtro por ordem
-        if request.POST.get('filtro-ordem'):
-            filtro_ordem = request.POST.get('filtro-ordem')
-            if filtro_ordem == 'recente':
-                produtos_ordenados = Produto.objects.all().order_by('created')
-            if filtro_ordem == 'menor':
-                produtos_ordenados = Produto.objects.all().order_by('preco')
-            if filtro_ordem == 'maior':
-                produtos_ordenados = Produto.objects.all().order_by('-preco')
-                
-         #Filtro por categoria   
-        if request.POST.get('filtro-categoria'):
-            print(request.POST.get('filtro-categoria'))
-            filtro_categoria = request.POST.get('filtro-categoria')
-            if filtro_categoria == 'todas':
-                pass
-            else:
-                categoria = Categoria.objects.get(nome = filtro_categoria)
-                produtos_ordenados = Produto.objects.filter(categoria=categoria)
-        
-        context = {
-            'produtos':produtos_ordenados,
-            'categorias':categorias,
-        }
-        return render(request, 'loja/index.html', context)
-    else:
-        context = {
-                'produtos':produtos_ordenados,
-                'categorias':categorias,
-            }    
-        return render(request, 'loja/index.html', context)

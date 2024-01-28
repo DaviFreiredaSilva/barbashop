@@ -15,7 +15,8 @@
     </div>
     <div class=" col-8 col-md-5">
       <div class="form_container mt-2">
-        <form>
+        <form method='POST'>
+          {% csrf_token %}
           <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" name="nome" id="nome">
@@ -30,8 +31,8 @@
             <input type="text" class="form-control" name="telefone" id="telefone">
           </div>
           <div class="form-group">
-            <label for="exampleInputMessage">Menssagem </label>
-            <input type="text" class="form-control" id="exampleInputMessage">
+            <label for="mensagem">Menssagem </label>
+            <input type="text" class="form-control" id="mensagem">
           </div>
           <button type="submit" class="">Enviar</button>
         </form>

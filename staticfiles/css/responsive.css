@@ -96,12 +96,13 @@
     }
   
     .card{
-      width: 190px!important;
-      margin: 15px;
+      width: 160px!important;
+      height: 280px;
+      margin: 10px;
     }
     
     .card img{
-      width:130px!important;
+      width:120px!important;
     }
 
     .card p{
@@ -144,7 +145,15 @@
       }
 /* Carrinho  */
       .detalhe-carrinho img{
-        max-width: 60px;
+        max-width: 40px;
       }
 
+      .detalhe-carrinho form{
+        width: 100%;
+      }
+
+      .carrinho-btn-remover{
+        width: 110%;
+        font-size: 0.8rem;
+      }
   }
