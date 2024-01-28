@@ -151,13 +151,13 @@
             </h4>
             <ul class="navbar-nav  ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Sobre <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'loja:index' %}">Sobre <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> Produtos </a>
+                <a class="nav-link" href="{% url 'loja:sobre'%}"> Produtos </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="medicine.html"> Contato </a>
+                <a class="nav-link" href="#"> Contato </a>
               </li>
             </ul>
           </div>

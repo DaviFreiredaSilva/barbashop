@@ -244,7 +244,7 @@ a:focus {
   font-size: 1.5rem!important;
   font-weight: bold;
   position: absolute;
-  bottom: 10px;
+  bottom: 25px;
 }
 .card h5{
   line-height: 1em;
@@ -390,23 +390,23 @@ a:focus {
           transform: none;
 }
 
-.contact_section .form_contaier form .form-group {
+.contact_section .form_container form .form-group {
   margin-bottom: 20px;
   color: white;
 }
 
-.contact_section .form_contaier form .form-control {
+.contact_section .form_container form .form-control {
   border-radius: 0;
   height: 35px;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.contact_section .form_contaier form .form-control#exampleInputMessage {
+.contact_section .form_container form .form-control#exampleInputMessage {
   height: 100px;
 }
 
-.contact_section .form_contaier form button {
+.contact_section .form_container form button {
   display: inline-block;
   padding: 10px 50px;
   background-color: #121313;
@@ -416,7 +416,7 @@ a:focus {
   margin-top: 15px;
 }
 
-.contact_section .form_contaier form button:hover {
+.contact_section .form_container form button:hover {
   background-color: transparent;
   color: #121313;
 }

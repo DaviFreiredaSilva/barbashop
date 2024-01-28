@@ -37,7 +37,7 @@ class Cart:
         id_produto = str(produto.id)
         if id_produto in self.cart:
             del self.cart[id_produto]
-            self.save()
+            self.salvar()
             
     def __iter__(self):
         #Itera os produtos do cart e pega os produtos do banco de dados
@@ -61,4 +61,4 @@ class Cart:
     
     def limpar(self):
         del self.session[settings.CART_SESSION_ID]
-        self.save()
+        self.salvar()

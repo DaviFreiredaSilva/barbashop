@@ -8,25 +8,26 @@
   <section>
     <div class="container mb-4">
         <div class="row justify-content-center">
-          <div class="col-lg-3 col-8">
-          <form class='d-flex'>
+          <div class="col-lg-5 col-10">
+          <form class='d-flex' action="{% url 'loja:filtrar_produtos' %}" method='POST'>
             {% csrf_token %}
-            <select class="form-select bg-dark text-light" name="filtro" id="filtro">
-                <option selected>Filtrar por:</option>
+            <select class="form-select bg-dark text-light mx-2" name="filtro-ordem" id="filtro-ordem">
+                <option selected>Ordenar por:</option>
                 <option value="recente">Mais recente</option>
-                <option value="recente">Menor preço</option>
-                <option value="recente">Maior preço</option>
+                <option value="menor">Menor preço</option>
+                <option value="maior">Maior preço</option>
             </select>
+            <select class="form-select bg-dark text-light mx-2" name="filtro-categoria" id="filtro-categoria">
+              <option value='todas' selected>Categorias</option>
+              {% for categoria in categorias %}
+                <option value="{{categoria.nome}}">{{categoria.nome}}</option>
+              {% endfor %}
+              
+              
+          </select>
             <input type="submit" class="btn btn-dark mx-3" value="Filtrar"></input>
           </form>
         </div>    
-        </div>
-        <div class="row justify-content-center">
-          <div class="d-flex justify-content-center">
-            <a href="#" class="btn btn-dark m-2">Camisas</a>
-            <a href="#" class="btn btn-dark m-2">Bermudas</a>
-            <a href="#" class="btn btn-dark m-2">Calçados</a>
-          </div>
         </div>
     </div>
   </section>
@@ -40,17 +41,20 @@
         {% for produto in produtos %}
         
           <div class="card p-2 my-4">
-            <a href="{% url 'loja:detalhe_produto' produto.slug %}" class="mb-3 mx-2 rounded">
+            <a href="{% url 'loja:detalhe_produto' produto.slug %}" class="mb-3 mx-2 rounded align-self-center">
               <img class="card-img-top align-self-center" src="{% if produto.imagem %}{{produto.imagem.url}}{% else %}{% static 'images/sem-imagem.jpeg' %}{% endif %}" alt="Card image cap">
             </a>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
               <h5 class="product-name text-dark">{{produto.nome|truncatechars:40}}</h5>
               <hr>
               <p class="card-text text-success fs-1">R$ {{produto.preco}} </p>
-              <form method='POST' action="{% url 'cart_add' produto.id %}">
-                {% csrf_token %}
-              <input type='submit'  class='btn btn-primary produto-botao-adicionar' value='Comprar'></input>
-              </form>
+              
+                <form method='POST' action="{% url 'cart_add' produto.id %}">
+                  {% csrf_token %}
+                <input type='submit'  class='btn btn-primary produto-botao-adicionar' value='Comprar'></input>
+                </form>
+              
+              
               
             </div>
           </div>

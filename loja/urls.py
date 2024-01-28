@@ -10,4 +10,5 @@ urlpatterns = [
     path('produto/<slug:slug>/', views.produto_por_categoria, name='produto_por_categoria'),
     path('admin-produto/', views.admin_produto, name='admin_produto'),
     path('cadastro-produto/', views.cadastro_produto, name='cadastro_produto'),
+    path('filtrar-produto/', views.filtrar_produtos, name='filtrar_produtos'),
 ]

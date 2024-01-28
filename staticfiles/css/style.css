@@ -207,6 +207,13 @@ a:focus {
   color: rgb(158, 158, 240)!important;
 }
 
+.carrinho{
+  position: fixed;
+  z-index: 5;
+  right: 10px;
+  top: 80px;
+}
+
 /*end header section*/
 /* slider section */
 .slider_section {
@@ -226,7 +233,7 @@ a:focus {
 
 .card{
   width: 250px;
-  height: 300px;
+  height: 330px;
 }
 
 .card img{
@@ -237,7 +244,7 @@ a:focus {
   font-size: 1.5rem!important;
   font-weight: bold;
   position: absolute;
-  bottom: 10px;
+  bottom: 25px;
 }
 .card h5{
   line-height: 1em;
@@ -245,6 +252,15 @@ a:focus {
 
 .card:hover h5{
   color: blue!important;
+ }
+
+ .produto-botao-adicionar{
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 5;
+  width: 30%;
  }
 
 /*end Section Produtos*/
@@ -374,23 +390,23 @@ a:focus {
           transform: none;
 }
 
-.contact_section .form_contaier form .form-group {
+.contact_section .form_container form .form-group {
   margin-bottom: 20px;
   color: white;
 }
 
-.contact_section .form_contaier form .form-control {
+.contact_section .form_container form .form-control {
   border-radius: 0;
   height: 35px;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.contact_section .form_contaier form .form-control#exampleInputMessage {
+.contact_section .form_container form .form-control#exampleInputMessage {
   height: 100px;
 }
 
-.contact_section .form_contaier form button {
+.contact_section .form_container form button {
   display: inline-block;
   padding: 10px 50px;
   background-color: #121313;
@@ -400,7 +416,7 @@ a:focus {
   margin-top: 15px;
 }
 
-.contact_section .form_contaier form button:hover {
+.contact_section .form_container form button:hover {
   background-color: transparent;
   color: #121313;
 }
@@ -534,21 +550,42 @@ a:focus {
 /*detalhe produtos*/
 
 .detalhes h3 span{
-  font-size: 2.5rem;
-}
-
-.detalhes h4{
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical; 
+  font-size: 3rem;
 }
 
 .detalhe-produto-imagem{
-  width: 30vw;
+  width: auto;
+  height: 60vh;
 }
 
 .detalhe-botao-adicionar{
   font-size: 2rem;
   margin-top: 50px;
+  margin-bottom: 30px;
 }
 /*detalhe produtos end*/
+
+/*detalhes carrinho*/
+.detalhe-carrinho{
+  padding:30px;
+  
+}
+
+.detalhe-carrinho .row{
+  background-color: #1a1a1a;
+  
+}
+
+.detalhe-carrinho .p-carrinho{
+  font-size: 1rem;
+}
+
+.detalhe-carrinho img{
+  max-width: 80px;
+  margin: 5px;
+}
+
+.detalhe-carrinho .total{
+  font-size: 2rem;
+}
+/*detalhes carrinho end*/

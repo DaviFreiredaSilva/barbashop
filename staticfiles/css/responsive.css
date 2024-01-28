@@ -68,22 +68,12 @@
     }
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
     .health_section .box {
         width: auto;
         margin-right: 5px;
     }
-}
-
-@media (max-width: 480px) {}
-
-@media (max-width: 420px) {}
-
-@media (max-width: 360px) {
-    .top_contact-container {
-        display: none !important;
-    }
-}
+} */
 
 @media (min-width: 1200px) {
     .container {
@@ -105,24 +95,33 @@
       -webkit-box-orient: vertical;
     }
   
-    .card-text{
-      font-size: 1rem!important;
-    }
-  
     .card{
-      width: 170px!important;
+      width: 190px!important;
+      margin: 15px;
     }
     
     .card img{
       width:130px!important;
     }
 
+    .card p{
+        font-size: 1.5rem!important;
+    }
+
     .lista-produto-categoria{
         display:none;
     }
 
+    .produto-botao-adicionar{
+        width: 50%;
+       }
+
     .info_menu{
         display: none;
+    }
+
+    .detalhe-produto-imagem{
+        width: 70vw!important;
     }
 
     .detalhes h3 span{
@@ -140,7 +139,12 @@
       }
       
       .detalhe-botao-adicionar{
-        font-size: 1.5rem;
+        font-size: 2rem;
         margin-top: 50px;
       }
+/* Carrinho  */
+      .detalhe-carrinho img{
+        max-width: 60px;
+      }
+
   }

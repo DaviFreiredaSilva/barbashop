@@ -33,3 +33,9 @@ def cart_detail(request):
         'cart':cart
     }
     return render(request, 'cart/detail.html', context)
+
+def cart_clear(request):
+    cart = Cart(request)
+    cart.limpar()
+    
+    return redirect('cart_detail')

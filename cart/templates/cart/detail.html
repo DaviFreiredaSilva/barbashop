@@ -12,18 +12,35 @@
             <div class="col-2 border border-light">
                 <img src="{{ item.produto.imagem.url }}" alt="p imagem">
             </div>
-            <div class="col-4 border border-light"><p class='p-carrinho'>{{item.produto.nome|truncatechars:30}}</p></div>
-            <div class="col-3 border border-light"><p class='p-carrinho'>{{item.quantidade}}X R${{item.produto.preco}}</p></div>
+            <div class="col-4 border border-light">
+                <p class='p-carrinho'>{{item.produto.nome|truncatechars:30}}</p>
+                <p class='p-carrinho'>{{item.quantidade}}X R${{item.produto.preco}}</p>
+            </div>
             <div class="col-3 border border-light"><p class='p-carrinho'>R${{item.preco_total}}</p></div>
+            <div class="col-3 border border-light">
+                <form action="{% url 'cart_remove' item.produto.id %}" method='POST'>
+                    {% csrf_token %}
+                    <input type='submit' class="btn btn-danger my-2" value='Remover'></imput>
+                </form>
+            </div>
         </div>
         {% endfor %}
-        <div class="row border border-light p-3"><p class='total'>Total: R${{cart.get_preco_total}}</p></div>
+        <div class="row border border-light p-3"><p class='total'>
+            {% if cart|length == 0 %}
+                Seu carrinho está vazio.
+            {% else %}
+                Total: R${{cart.get_preco_total}}</p>
+            {% endif %}    
+        </div>
         <div class='d-flex justify-content-between'>
             <a href="{% url 'loja:index' %}" class='btn btn-primary my-3'>Continuar comprando</a>
             <a href="#" class='btn btn-success my-3'>Pagar</a>
         </div>
         <div class='d-flex justify-content-between'>
-            <a href="#" class='btn btn-danger my-3'>Limpar carrinho</a>
+            <form action="{% url 'cart_clear' %}" method='POST'>
+                {% csrf_token %}
+                <input type='submit' class="btn btn-danger my-2" value='Limpar Carrinho'></imput>
+            </form>
         </div>
         
 </div>

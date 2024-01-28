@@ -95,17 +95,17 @@
       -webkit-box-orient: vertical;
     }
   
-    .card-text{
-      font-size: 1rem!important;
-    }
-  
     .card{
-      width: 170px!important;
+      width: 190px!important;
       margin: 15px;
     }
     
     .card img{
       width:130px!important;
+    }
+
+    .card p{
+        font-size: 1.5rem!important;
     }
 
     .lista-produto-categoria{

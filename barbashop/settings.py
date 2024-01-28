@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'contas',
     'loja',
     'cart',
+    'pedidos',
     
     'django.contrib.admin',
     'django.contrib.auth',
