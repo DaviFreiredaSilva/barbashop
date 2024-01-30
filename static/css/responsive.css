@@ -109,9 +109,22 @@
         font-size: 1.5rem!important;
     }
 
+    /*Lista de produtos admin produto*/
+
+    .lista-produtos-titulo{
+        width: 80vw; 
+      }
+
+    .lista-produtos{
+        width: 80vw;
+    }
+
     .lista-produto-categoria{
         display:none;
     }
+    /*Lista de produtos admin produto end*/
+
+    
 
     .produto-botao-adicionar{
         width: 50%;
@@ -123,6 +136,7 @@
 
     .detalhe-produto-imagem{
         width: 70vw!important;
+        height: auto;
     }
 
     .detalhes h3 span{
@@ -140,7 +154,7 @@
       }
       
       .detalhe-botao-adicionar{
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-top: 50px;
       }
 /* Carrinho  */
@@ -155,5 +169,20 @@
       .carrinho-btn-remover{
         width: 110%;
         font-size: 0.8rem;
+      }
+
+      .dashboard-opcao{
+        font-size: 1.5rem;
+        width: 80vw;
+        padding: 20px;
+      }
+      
+      .dashboard-opcao a{
+        text-decoration: none;
+        color: #000000!important;
+      }
+      
+      .dashboard-opcao:hover{
+        color: blue!important;
       }
   }

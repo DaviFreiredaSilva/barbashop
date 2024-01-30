@@ -237,7 +237,8 @@ a:focus {
 }
 
 .card img{
-  width:150px;
+  height: 150px;
+  max-width:150px;
 }
 
 .card p{
@@ -532,8 +533,9 @@ a:focus {
 }
 
 .lista-produtos{
+  overflow-y: scroll;
   font-size: 1.5rem;
-  height: 250px;
+  height: 450px!important;
 }
 
 .lista-produtos-titulo .row-titulo{
@@ -589,3 +591,22 @@ a:focus {
   font-size: 2rem;
 }
 /*detalhes carrinho end*/
+
+/*Dashboard*/
+.dashboard-opcao{
+  background-color: #9b9b9b;
+  color: #000000!important;
+  font-size: 1.5rem;
+  width: 40vw;
+  padding: 20px;
+}
+
+.dashboard-opcao a{
+  text-decoration: none;
+  color: #000000!important;
+}
+
+.dashboard-opcao:hover{
+  color: blue!important;
+}
+/*Dashboard end*/

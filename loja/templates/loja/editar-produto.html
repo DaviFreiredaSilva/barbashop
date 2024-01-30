@@ -1,0 +1,33 @@
+{% extends "loja/base.html" %}
+{% load static %}
+{% block title %}Editar{% endblock title %}
+
+{% block content %}
+
+<div class="container text-light py-5">
+    <h2 class="text-uppercase mb-4">EDIÇÂO DE PRODUTO</h2>
+    <div class="form_contaier col-8 col-md-6">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="nome">Nome</label>
+            <input type="text" name='nome' id='nome' class='form-control my-1' required value='{{produto.nome}}'>
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="categoria" class='form-select'>
+                {% for c in categorias %}
+                    <option {% if produto.categoria.nome == c.nome  %}selected{% endif %} value="{{c.nome}}">{{c.nome}}</option>
+                {% endfor %}
+            </select>
+            <label for="descricao" value='{{produto.descricao}}'>Descrição</label>
+            <textarea rows=3 name='descricao' id='descricao' class='form-control my-1'>{{produto.descricao}}</textarea>
+            <label for="preco" >Preço</label>
+            <input type="number" name='preco' id='preco' class='form-control my-1' min="0" step=".01"  required value='{{produto.preco}}'>
+            <label for="imagem">Imagem</label>
+            <input type="file" id="imagem" name="imagem" accept="image/*" class='form-control my-1'>
+          </div>
+         
+         <button type="submit" class="btn btn-primary my-2">Salvar</button>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock content %}

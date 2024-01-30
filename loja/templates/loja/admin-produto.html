@@ -4,33 +4,31 @@
 
 {% block content %}
 <div class="container-principal">
-    <div class="d-flex flex-column align-items-center text-light">
+    <div class="d-flex flex-column align-items-center text-light text-center">
         <h1>Lista de Produtos</h1><br/><br>
-        <h3>Clique em um produto para editá-lo ou <a class='btn btn-outline-primary' href="{% url 'loja:cadastro_produto'%}"><h3>adicione um produto</h3></a></h3>
-        <div class='col-8 col-md-10 m-4'>
-            <div class="container lista-produtos-titulo">
+        <h3>Clique em um produto para editá-lo ou <a class='btn btn-primary' href="{% url 'loja:cadastro_produto'%}"><h3>adicione um produto</h3></a></h3>
+        
+            <div class="container lista-produtos-titulo mt-4">
                 <div class="row border border-light row-titulo text-center">
-                    <div class="col-2">ID</div>
                     <div class="col-6">NOME</div>
                     <div class="col-2 lista-produto-categoria">CATEGORIA</div>
-                    <div class="col-2">PREÇO</div>
+                    <div class="col-6 col-md-3">PREÇO</div>
                 </div>
             </div>
-            <div class="container lista-produtos overflow-scroll">
+            <div class="container lista-produtos">
 
                 {% for produto in produtos %}
-                    <a href="#">
+                    <a href="{% url 'loja:editar_produto' produto.id%}">
                         <div class="row border border-light row-produto text-center">
-                            <div class="col-2">{{produto.id}}</div>
                             <div class="col-6">{{produto.nome|truncatechars:'30'}}</div>
-                            <div class="col-2 lista-produto-categoria">{{produto.categoria}}</div>
-                            <div class="col-2">R$ {{produto.preco}}</div>
+                            <div class="col-3 lista-produto-categoria">{{produto.categoria}}</div>
+                            <div class="col-6 col-md-3 text-center">R$ {{produto.preco}}</div>
                         </div>
                     </a>
                 {% endfor %}
 
             </div>
-        </div>
+        
     </div>
 </div>
 

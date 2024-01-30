@@ -1,27 +1,44 @@
 {% extends "loja/base.html" %}
 
-{% block title %}Login{% endblock title %}
+{% block title %}Dashboard{% endblock title %}
 
 {% block content %}
 <div class="container-principal">
     <div class="row justify-content-center">
-        <div class="col-8 col-lg-4 text-light">
+        <div class="col-10 col-lg-10 text-light">
             <h2>Bem Vindo {{nome_usuario}}</h2>
-            <h3>Deseja:</h3>
-            <a href="{% url 'password_change' %}" class='btn btn-success my-2'>Modificar senha</a><br>
-            <a href="{% url 'password_reset' %}" class='btn btn-success my-2'>Esqueceu a senha?</a><br>
-            <a href="{% url 'logout'%}" class='btn btn-success my-2'>Sair da conta</a><br>
+            <a href="{% url 'password_change' %}" >
+                <div class='dashboard-opcao border border-dark'>
+                    <p>Modificar senha <span class='mx-3' ><i class="fa-solid fa-angle-right"></i></span></p>
+                </div>
+            </a>
+            <a href="{% url 'password_reset' %}" >
+                <div class='dashboard-opcao border border-dark'>
+                    <p>Esqueceu a senha?<span class='mx-3' ><i class="fa-solid fa-angle-right"></i></span></p>
+                </div>
+            </a>
+            <a href="{% url 'logout' %}" >
+                <div class='dashboard-opcao border border-dark'>
+                    <p>Sair da conta<span class='mx-3' ><i class="fa-solid fa-angle-right"></i></span></p>
+                </div>
+            </a>
         </div>
     </div>
 
     {% if user.is_superuser %}
         <div class="row text-light justify-content-center mb-4">
-            <div class="col text-center">
-                <h1 class='text-center text-uppercase my-5'>Área administrativa</h1>
-                
-                <a href="{% url 'loja:admin_produto'%}" class='btn btn-success big-button m-3'>Cadastrar /<br> alterar produto</a><br>
-                <a href="#" class='btn btn-success big-button m-3'>Criar <br> categoria</a>
-                
+            <div class="col-10 col-lg-10 text-light">
+                <h1 class='text-uppercase my-5'>Área administrativa</h1>
+                <a href="{% url 'loja:admin_produto'%}" >
+                    <div class='dashboard-opcao border border-dark'>
+                        <p>Cadastrar ou alterar um produto <span class='mx-5' ><i class="fa-solid fa-angle-right"></i></span></p>
+                    </div>
+                </a>
+                <a href="{% url 'loja:cadastro_categoria' %}" >
+                    <div class='dashboard-opcao border border-dark'>
+                        <p>Criar categoria<span class='mx-3' ><i class="fa-solid fa-angle-right"></i></span></p>
+                    </div>
+                </a>              
             </div>
         </div>
     {% endif %}

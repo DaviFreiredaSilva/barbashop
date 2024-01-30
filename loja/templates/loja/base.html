@@ -62,7 +62,7 @@
               <div class="login_btn-contanier ml-0 ml-lg-5">
                 <a href="{% url 'dashboard' %}">
                   <span>
-                    {{nome_usuario}}  <i class="fa-solid fa-user"></i>
+                    {{nome_usuario}}<i class="fa-solid fa-user"></i>
                   </span>
                 </a>
               </div>
@@ -99,7 +99,7 @@
     <!-- end header section -->
   {% if messages %}
     {% for m in messages %}
-      <div class='message alert alert-success col-5 ms-4'>{{m}}</div>
+      <div class='message alert alert-success col-5 ms-4 align-self-center fs-2'>{{m}}</div>
     {% endfor %}
   {% endif %}
   </div>

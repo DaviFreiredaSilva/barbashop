@@ -3,6 +3,7 @@ from django.views.decorators.http import require_POST
 from loja.models import Produto
 from .cart import Cart
 from .forms import CartAddProductForm
+from django.contrib import messages
 
 @require_POST
 def cart_add(request, id_produto):
@@ -12,8 +13,9 @@ def cart_add(request, id_produto):
             produto=produto,
             quantidade=1,
             override_quantity=None
-        )    
-    return redirect('cart_detail')
+        )
+    messages.success(request, 'Produto adicionado ao carrinho.')    
+    return redirect('loja:index')
 
 @require_POST
 def cart_remove(request, id_produto):

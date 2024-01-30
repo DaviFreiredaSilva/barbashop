@@ -1,0 +1,23 @@
+{% extends "loja/base.html" %}
+{% load static %}
+{% block title %}Ctegoria{% endblock title %}
+
+{% block content %}
+
+<div class="container text-light py-5">
+    <h2 class="text-uppercase mb-4">Cadastro de categoria</h2>
+    <h3>Insira um nome para uma nova categoria de produtos:</h3>
+    <h3>A nova categoria será selecionável ao cadastrar ou alterar um produto.</h3>
+    <div class="form_contaier col-8 col-md-6">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="nome">Nome</label>
+            <input type="text" name='nome' id='nome' class='form-control my-1' required>
+          </div>
+         
+          <button type="submit" class="btn btn-primary my-2">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock content %}
