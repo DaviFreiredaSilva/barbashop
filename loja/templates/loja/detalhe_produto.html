@@ -13,8 +13,11 @@
     </div>
     <div class="row my-3">
         <div class="col-10 text-light detalhes">
-            <h3 class="my-2">Preço: <span>R${{produto.preco}}</span></h3>           
-            <a href="#" class="btn btn-primary detalhe-botao-adicionar">Adicionar ao carrinho</a>
+            <h3 class="my-2">Preço: <span>R${{produto.preco}}</span></h3>
+            <form action="{% url 'cart_add' produto.id %}" method='POST'>
+                {% csrf_token %}
+                <input type='submit' class="btn btn-primary detalhe-botao-adicionar" value='Adicionar ao carrinho'></input>
+            </form>           
             <h4 class="my-2">Descrição: <br>{{produto.descricao}}</h4>
         </div>
     </div>
